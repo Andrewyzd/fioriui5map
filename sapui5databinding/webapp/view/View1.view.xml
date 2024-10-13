@@ -1,0 +1,29 @@
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="sapui5databinding.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id='page' title="{i18n>title}">
+        <Panel id='panel1' headerText="{i18n>titlePanel1}"
+               class="sapUiResponsiveMargin"
+               width="auto">
+
+               <form:SimpleForm id='form1' editable="true" layout="ColumnLayout">
+                    <!-- this is the first label --> 
+                    <Label id='label1' text="First name"/>
+                    <Input id='input1' value="{/name/firstname}" valueLiveUpdate="true" width="400px" enabled="{/name/enabled}"/>
+                    
+                    <!-- this is the second label --> 
+                    <Label id='label2' text="Last name"/>
+                    <Input id='input2' value="{/name/lastname}" valueLiveUpdate="true" width="400px" enabled="{/name/enabled}"/>           
+               </form:SimpleForm>
+
+               <CheckBox id='checkbox1' selected="{/name/enabled}"></CheckBox>
+            
+            <form:SimpleForm id='form2' editable="true" layout="ColumnLayout">
+               <Button id='button1' text="{i18n>showHelloButtonText}" press='onShowHello' class="sapUiSmallMarginEnd"> </Button>
+               		
+                <Button id='button2' text="{i18n>nextPage}" press='onNextPress'/>
+                <Input id='input3' value="{/name/firstname}" valueLiveUpdate="true" width="60%"/>
+            </form:SimpleForm>
+        </Panel>
+    </Page>
+</mvc:View>

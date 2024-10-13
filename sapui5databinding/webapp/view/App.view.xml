@@ -1,0 +1,8 @@
+<mvc:View controllerName="sapui5databinding.controller.App"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Shell id='shell1'>
+        <App id='app' class="myAppDemoWT">
+        </App>
+    </Shell>
+</mvc:View>

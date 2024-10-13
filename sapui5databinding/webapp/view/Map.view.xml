@@ -1,0 +1,49 @@
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="sapui5databinding.controller.Map"
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:vbm="sap.ui.vbm" xmlns:l="sap.ui.layout" height="100%" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page2" title="{i18n>title2}" showNavButton="true" navButtonPress="onNextPress">
+        <l:FixFlex id='fixflex1' class="fixFlexFixedSize">
+            <l:fixContent>
+                <Panel id='panel2' expandable="true" expanded="{= !${device>/system/phone} }"
+                    headerText="Description">
+                    <headerToolbar>
+                        <Toolbar id='toolbar1'>
+                            <Title id='title2' text="Description" />
+                            <ToolbarSpacer id='toolbarspacer'/>
+                            <Button id="btnLegend" icon="sap-icon://legend" press="onPressLegend"
+                                tooltip="Hide legend" />
+                            <Button id="btnResize" icon="sap-icon://resize" press="onPressResize"
+                                tooltip="Minimize" />
+                        </Toolbar>
+                    </headerToolbar>
+                    <content>
+                        <VBox id='vbox1' class="sapUiTinyMargin">
+                            <Text id='text1'
+                                text="You can visualize regions, such as countries or zip code zones." />
+                            <Text id='text2' class="sapUiTinyMarginTop" text="See also: " />
+                            <Link id='link1' class="sapUiLargeMarginLeft" text="Visual business best practices"
+                                target="_blank" href="test-resources/sap/ui/vbm/bestpractices.html" />
+                        </VBox>
+                    </content>
+                </Panel>
+            </l:fixContent>
+            <l:flexContent>
+                <vbm:AnalyticMap id="vbi" width="100%" xmlns:l="sap.ui.layout"
+                    height="100%" initialPosition="-98;30;0" initialZoom="4"
+                    regionClick="onRegionClick" regionContextMenu="onRegionContextMenu"
+                    regions="{/Regions}">
+                    <vbm:regions>
+                        <vbm:Region id='vbmregion1' code="{code}" color="{color}" tooltip="{county}" />
+                    </vbm:regions>
+                    <vbm:legend>
+                        <vbm:Legend id="legend" caption="Decline in birth rate"
+                            items="{/Legend}">
+                            <vbm:LegendItem id='vbmregion2' text="{text}" color="{color}" />
+                        </vbm:Legend>
+                    </vbm:legend>
+                </vbm:AnalyticMap>
+            </l:flexContent>
+        </l:FixFlex>
+    </Page>
+</mvc:View>
